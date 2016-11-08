@@ -1,12 +1,14 @@
 package com.wenhao.netshop.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created by lw on 2016/11/8.
  */
 @Entity
-public class Users {
+public class Users implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +22,10 @@ public class Users {
 
     @Column
     private String passwordSalt;
+
+    @Id
+    @ManyToMany
+    private Set<Roles> roles;
 
 
     public Long getId() {
@@ -58,6 +64,14 @@ public class Users {
 
     public void setPasswordSalt(String passwordSalt) {
         this.passwordSalt = passwordSalt == null ? null : passwordSalt.trim();
+    }
+
+    public Set<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Roles> roles) {
+        this.roles = roles;
     }
 
     @Override

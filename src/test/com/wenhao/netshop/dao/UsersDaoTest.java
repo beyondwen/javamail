@@ -17,10 +17,10 @@ public class UsersDaoTest extends BaseTest {
         Users user = new Users();
         user.setUsername("wenhao");
         user.setPassword("12345");
-        //repository.save(user);
+        repository.save(user);
         //repository.delete(1L);
-        Users users = repository.findByUsername("wenhao1");
-        System.out.println(users);
+        //Users users = repository.findByUsername("wenhao1");
+        //System.out.println(users);
     }
 
 }

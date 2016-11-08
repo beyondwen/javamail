@@ -25,7 +25,7 @@ public class SimpleOrderManager implements OrderManager {
         SimpleMailMessage msg = new SimpleMailMessage(templateMessage);
         msg.setTo("921790476@qq.com");
         msg.setText(
-               "http://blog.csdn.net/jaune161/article/details/44014937");
+               "cesi");
         try {
             mailSender.send(msg);
             System.out.println(msg);
