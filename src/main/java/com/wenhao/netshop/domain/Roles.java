@@ -17,8 +17,8 @@ public class Roles implements Serializable {
     @Column
     private String rolename;
 
-    @Id
     @ManyToMany
+    @JoinTable(name = "role_permissions", joinColumns = {@JoinColumn(name = "role_id")}, inverseJoinColumns = {@JoinColumn(name = "permissions_id")})
     private Set<Permissions> permissionses;
 
     public Long getId() {
