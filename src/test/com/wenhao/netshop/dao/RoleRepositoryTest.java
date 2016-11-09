@@ -1,25 +1,23 @@
 package com.wenhao.netshop.dao;
 
 import com.wenhao.netshop.BaseTest;
-import com.wenhao.netshop.domain.Roles;
+import com.wenhao.netshop.domain.Role;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by lenovo on 2016/11/08.
  */
-public class RolesRepositoryTest extends BaseTest {
+public class RoleRepositoryTest extends BaseTest {
 
     @Autowired
     private RolesRepository rolesRepository;
 
     @Test
     public void saveTest() {
-        Roles roles = new Roles();
-        roles.setRolename("管理员");
-        rolesRepository.save(roles);
+        Role role = new Role();
+        role.setRolename("管理员");
+        rolesRepository.save(role);
     }
 
 }

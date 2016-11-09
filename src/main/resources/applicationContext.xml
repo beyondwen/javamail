@@ -9,6 +9,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
+    <context:property-placeholder location="sqls/User.xml"/>
     <!--jdbc.properties 路径-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
@@ -25,7 +26,6 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <!--<property name="mapperLocations" value="" />-->
     </bean>
     <!-- 事务 -->
     <tx:advice id="txAdvice" transaction-manager="txManager">
@@ -45,6 +45,7 @@
         <aop:pointcut id="ServiceOperation" expression="execution(* com.wenhao.netshop.service.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="ServiceOperation"/>
     </aop:config>
+
 
     <import resource="spring-MVC.xml"/>
     <import resource="spring-shiro.xml"/>

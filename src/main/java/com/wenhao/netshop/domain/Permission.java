@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Created by lenovo on 2016/11/08.
  */
 @Entity
-public class Permissions implements Serializable{
+public class Permission implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

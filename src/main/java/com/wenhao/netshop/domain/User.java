@@ -8,10 +8,10 @@ import java.util.Set;
  * Created by lw on 2016/11/8.
  */
 @Entity
-public class Users implements Serializable {
+public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -25,7 +25,7 @@ public class Users implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "role_id")})
-    private Set<Roles> roles;
+    private Set<Role> roles;
 
 
     public Long getId() {
@@ -66,17 +66,17 @@ public class Users implements Serializable {
         this.passwordSalt = passwordSalt == null ? null : passwordSalt.trim();
     }
 
-    public Set<Roles> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Roles> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

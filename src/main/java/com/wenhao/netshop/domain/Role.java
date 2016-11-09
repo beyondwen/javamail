@@ -1,7 +1,5 @@
 package com.wenhao.netshop.domain;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -10,7 +8,7 @@ import java.util.Set;
  * Created by lenovo on 2016/11/08.
  */
 @Entity
-public class Roles implements Serializable {
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,8 +16,8 @@ public class Roles implements Serializable {
     private String rolename;
 
     @ManyToMany
-    @JoinTable(name = "role_permissions", joinColumns = {@JoinColumn(name = "role_id")}, inverseJoinColumns = {@JoinColumn(name = "permissions_id")})
-    private Set<Permissions> permissionses;
+    @JoinTable(name = "role_permission", joinColumns = {@JoinColumn(name = "role_id")}, inverseJoinColumns = {@JoinColumn(name = "permission_id")})
+    private Set<Permission> permissionses;
 
     public Long getId() {
         return id;
@@ -37,11 +35,11 @@ public class Roles implements Serializable {
         this.rolename = rolename;
     }
 
-    public Set<Permissions> getPermissionses() {
+    public Set<Permission> getPermissionses() {
         return permissionses;
     }
 
-    public void setPermissionses(Set<Permissions> permissionses) {
+    public void setPermissionses(Set<Permission> permissionses) {
         this.permissionses = permissionses;
     }
 }
